@@ -13,8 +13,8 @@ clash_config='/home/%s/.config/clash/config.yaml'%getuser()
 self_config='./我的配置/'
 # 此为存放clash配置及用户数据的路径, 请在最后加/
 
-start_clash='/home/thdbd/Downloads/clash'
-# 此为启动clash的指令
+start_clash='clash'
+# 此为启动clash的指令, Linux用户请填写clash内核可执行文件的绝对路径
 
 editor='micro'
 # 编辑配置文件时使用的编辑器
