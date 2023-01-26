@@ -41,15 +41,16 @@ Clash v1.12.0 linux amd64 with go1.19.3 Fri Nov 25 12:43:25 UTC 2022
  └─ 地址: https://sub.pmsub.me/clash.yaml
  └─ socks端口: 7891
  └─ 模式: Rule
- └─ 外部控制端口: 9090
+ └─ 外部控制端口: :9090
  └─ 节点个数: 62
  └─ 允许局域网: 是
  └─ 允许IPV6: 否
 nohup: 把输出追加到 'nohup.out'
 
-clash已在后台启动, 进程号: 307495
+clash已在后台启动, 进程号: 349068
 终端代理: export https_proxy=http://127.0.0.1:7891
 Telegram代理: https://t.me/socks?server=127.0.0.1&port=7891
+控制面板: http://yacd.haishan.me/#/ │ http://clash.razord.top/#/proxies
 ```
 
 ## 用法
