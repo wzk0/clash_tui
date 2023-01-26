@@ -1,6 +1,6 @@
 # Clash_TUI
 
-> 一个基于clash的简陋的终端界面. 适用于Termux和所有Linux终端.
+> 一个基于clash内核的简陋的终端界面. 适用于Termux和所有Linux终端.
 
 ## 支持
 
@@ -59,7 +59,7 @@ pip install PyYAML
 
 随后Linux用户需[点此选择正确的clash版本](https://github.com/Dreamacro/clash/releases)并下载解压到本地.
 
-> Termux用户可以再输入`pkg install clash`直接安装clash.
+> Termux用户可以直接输入`pkg install clash`安装clash.
 
 之后clone此仓库:
 
