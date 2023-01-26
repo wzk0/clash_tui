@@ -1,36 +1,102 @@
 # Clash_TUI
 
-> 一个基于clash的简陋的终端界面. 适用于Termux, 稍做修改可适用于所有Linux终端.
+> 一个基于clash的简陋的终端界面. 适用于Termux和所有Linux终端.
 
-## 支持:
+## 支持
 
-1. 添加订阅
-2. 切换订阅
-3. 删除订阅
-4. 启动
-5. 查看订阅信息
-6. 还没做好的设置功能
+0. 添加订阅;
+1. 删除订阅;
+2. 更新订阅;
+3. 重命名订阅;
+4. 查看订阅信息;
+5. 订阅储存与导出;
+6. 静默启动clash;
+7. 杀死clash.
 
-## 使用:
+## 界面
 
-使用`wget`下载`main.py`这个文件到Termux.
+主界面:
 
-安装`pyyaml`模块: `pip install PyYAML`
+```
+Clash v1.12.0 linux amd64 with go1.19.3 Fri Nov 25 12:43:25 UTC 2022
+ └─ clash已启动, 进程号: 307495
+ └─ 当前共有1个配置.
 
-启动: `python3 main.py`
+0. 添加配置 │ 1. 删除配置 │ 2. 更新配置 │ 3. 重命名配置 │ 4. 编辑配置 │
 
-流程和clash系的软件一样, 应当先添加配置, 再切换配置, 再启动.
+5. 当前配置 │ 6. 选择配置 │ 7. 启动 │ 8. 结束进程 │ 
+
+请输入序号以进行操作:
+```
+
+启动界面:
+
+```
+此配置信息如下:
+ └─ 名称: pm
+ └─ 地址: https://sub.pmsub.me/clash.yaml
+ └─ socks端口: 7891
+ └─ 模式: Rule
+ └─ 外部控制端口: 9090
+ └─ 节点个数: 62
+ └─ 允许局域网: 是
+ └─ 允许IPV6: 否
+nohup: 把输出追加到 'nohup.out'
+
+clash已在后台启动, 进程号: 307495
+终端代理: export https_proxy=http://127.0.0.1:7891
+Telegram代理: https://t.me/socks?server=127.0.0.1&port=7891
+```
+
+## 用法
+
+首先应当确保电脑上有`git`, `python3`, `wget`, 以及`pyyaml`模块:
+
+```sh
+apt install git python3 wget python3-pip -y
+pip install PyYAML
+```
+
+随后Linux用户需[点此选择正确的clash版本](https://github.com/Dreamacro/clash/releases)并下载解压到本地.
+
+> Termux用户可以再输入`pkg install clash`直接安装clash.
+
+之后clone此仓库:
+
+```sh
+git clone https://github.com/wzk0/clash_tui
+cd clash_tui
+```
+
+编辑`clash.py`第十到二十三行的内容:
+
+```sh
+nano clash.py
+```
+
+> 无需担心, 文件内有相关注释解释.
+
+
+保存`clash.py`后, 请运行`setup.py`:
+
+```sh
+python3 setup.py
+```
+
+此后每次运行只需:
+
+```sh
+python3 clash.py
+```
+
+进入程序后, 其使用思路与cfw和cfa一样, 先`添加配置`, 再`选择配置`, 最后`启动`.
 
 ## 其他
 
-由于我对clash内核不清楚, 所以使用了另建一个配置文件夹的方式储存配置文件(其他clash系软件的思路大概也是这样?).
+若要迁移数据, 只需在`self_config`文件夹(上面自定义的变量)找到`data.json`即可按照文件内容进行恢复.
 
-第五行的变量是储存配置文件的路径, 记得最后有/.
-
-第六行是启动clash的方式, Linux终端用户可将其修改为./clash(core的文件名).
-
-第七行是clash默认的配置文件路径, Linux用户需要修改.
+配置文件储存路径为`$self_config/config`.
 
 ## 开发
 
-第一次编写时手头没有电脑, 只好用Termux, 眼睛非常难受. 所以这个项目未完待续.
+有部分注释!
