@@ -30,7 +30,7 @@ def list_print(raw_list):
 
 # 输出报错的同时退出程序
 def error(reason):
-	print('由于%s, 请自行修改后重启程序.'%reason)
+	print('由于%s, 请自行修复后重启程序.'%reason)
 	sys.exit()
 
 # 地址类
@@ -136,6 +136,8 @@ class clash:
 		os.system('kill %s'%clash.get_pid())
 	# 启动clash
 	def start():
+		if clash.get_pid()!=None:
+			clash.kill() if input('检测到当前clash正在运行, 是/否(y/n)杀死:')=='y' else error('clash正在运行')
 		try:
 			with open(self_config+'.now','r')as file:
 				name=file.read()
@@ -213,9 +215,11 @@ def main():
 	# 启动clash
 	elif mode==7:
 		clash.start()
+		print('\n启动成功!')
 	# 杀死clash进程
 	elif mode==8:
 		clash.kill()
+		print('\n杀死成功!')
 	else:
 		pass
 
