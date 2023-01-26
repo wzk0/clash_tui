@@ -142,7 +142,7 @@ class clash:
 			info=config.info(name)
 			os.system('nohup %s &'%start_clash)
 			print('\nclash已在后台启动, 进程号: %s'%clash.get_pid())
-			print('终端代理: export https_proxy=http://127.0.0.1:%s\nTelegram代理: https://t.me/socks?server=127.0.0.1&port=%s'%(info['socks端口'],info['socks端口']))
+			print('终端代理: export https_proxy=http://127.0.0.1:%s\nTelegram代理: https://t.me/socks?server=127.0.0.1&port=%s\n控制面板: http://yacd.haishan.me/#/ │ http://clash.razord.top/#/proxies'%(info['socks端口'],info['socks端口']))
 		except:
 			error('未选择配置或配置格式无法读取')
 
