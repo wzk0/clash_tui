@@ -40,14 +40,19 @@ class link:
 		if not url.startswith('http'):
 			error('配置地址无效')
 		print('正在获取...')
-		os.system("wget -q '%s' -O '%sconfig/%s'"%(url,self_config,name))
-		with open(self_config+'data.json','r')as file:
-			old_data=json.loads(file.read())
-			one_data={'name':name,'url':url}
-			old_data.append(one_data)
-		with open(self_config+'data.json','w')as file:
-			file.write(json.dumps(old_data,ensure_ascii=False))
-		config.info(name)
+		try:
+			os.system("wget -q '%s' -O '%sconfig/%s'"%(url,self_config,name))
+			with open(self_config+'data.json','r')as file:
+				old_data=json.loads(file.read())
+				one_data={'name':name,'url':url}
+				old_data.append(one_data)
+			with open(self_config+'data.json','w')as file:
+				file.write(json.dumps(old_data,ensure_ascii=False))
+			config.info(name)
+		except:
+			print('添加失败!')
+			config.delete(['%s'%name])
+			sys.exit()
 	# 通过配置名获取配置地址
 	def get_url(data,name):
 		for one_data in data:
